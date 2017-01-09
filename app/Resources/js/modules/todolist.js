@@ -1,4 +1,4 @@
-import {List, Map} from 'immutable';
+import {fromJS, List, Map} from 'immutable';
 import fetch from 'isomorphic-fetch';
 
 const ROOT_URL = 'http://127.0.0.1:8000';
@@ -78,7 +78,7 @@ export function fetchTasks() {
                     return response.json();
                 }
             })
-            .then(tasks => dispatch(setTasks(tasks)))
+            .then(tasks => dispatch(setTasks(fromJS(tasks))))
 }
 
 // ------------------------------------

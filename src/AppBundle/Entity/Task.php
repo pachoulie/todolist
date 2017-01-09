@@ -16,19 +16,27 @@ class Task
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      *
-     * @var int
+     * @var integer
      */
-    protected $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string")
      *
      * @var string
      */
-    protected $text;
+    private $text;
+
 
     /**
-     * @return int
+     * @ORM\Column(type="boolean", options={"default" : 0})
+     *
+     * @var boolean
+     */
+    private $completed;
+
+    /**
+     * @return integer
      */
     public function getId()
     {
@@ -51,5 +59,19 @@ class Task
         $this->text = $text;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCompleted()
+    {
+        return $this->completed;
+    }
 
+    /**
+     * @param mixed $completed
+     */
+    public function setCompleted($completed)
+    {
+        $this->completed = $completed;
+    }
 }
