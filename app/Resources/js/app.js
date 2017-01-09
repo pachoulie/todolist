@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from './components/component';
+import createStore from './store/createStore';
+import AppContainer from './containers/AppContainer';
+
+// ========================================================
+// Store Instantiation
+// ========================================================
+const initialState = window.___INITIAL_STATE__;
+const store = createStore(initialState);
 
 const MOUNT_NODE = document.getElementById('app');
 
 let render = () => {
     ReactDOM.render(
-        <Component />,
+        <AppContainer store={store}/>,
         MOUNT_NODE
     );
 };
